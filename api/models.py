@@ -117,8 +117,7 @@ class Permisos(Model):
         if not ExistAtLeastOne:
             for Permiso in TIPO_PERMISO:
                 self.objects.create(
-                    permiso_nombre = Permiso[1],
-                    permiso_id = Permiso[0]
+                    permiso_nombre = Permiso[1]
                 )
 
 

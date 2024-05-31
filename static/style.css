@@ -1,0 +1,75 @@
+/* Django version 5.0 */
+/* add Robot font */
+@font-face {
+    font-family: "RobotoBold";
+    src: url("/static/fonts/Roboto-Medium.ttf")
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url("/static/fonts/Roboto-Regular.ttf")
+}
+
+@font-face {
+    font-family: "RobotoLight";
+    src: url("/static/fonts/Roboto-Light.ttf")
+}
+
+* {
+    color: white;
+    font-family: "Roboto", Arial;
+}
+
+body {
+    background-color: rgb(21, 32, 43);
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: inherit;
+}
+
+.mp-maincontent {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.mp-leftbar {
+    position: fixed;
+    height: 100%;
+    right: calc(75vw + 19px);
+    width: 170px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.mp-leftbar-item {
+    font-family: "RobotoLight", Arial;
+    padding: 10px;
+    border-bottom: 1px solid rgb(21, 32, 43);
+
+    width: 100%;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.mp-leftbar-item:hover {
+    background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 80%);
+    cursor: pointer;
+}
+
+.mp-midbar {
+    width: 50vw;
+
+    border-left: 1px solid rgb(37, 47, 58);
+    border-right: 1px solid rgb(37, 47, 58);
+
+    padding-left: 16px;
+    padding-right: 16px;
+}

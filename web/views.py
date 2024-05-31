@@ -1,9 +1,21 @@
+# ====================================================
+# ================ Librerias y Clases ================
+# ====================================================
+
 from django.shortcuts import render
+from django.template import loader, Template
+
 from django.http import HttpResponse
+from django.core.handlers.wsgi import WSGIRequest
 
-# Create your views here.
-def index(request) -> HttpResponse:
-    return HttpResponse("Hello, world. You're at the web index.")
+# Import settings "CUSTOM_CONFIG" from settings.py
+from mappinglatam.settings import CUSTOM_CONFIG
 
-def subindex(request) -> HttpResponse:
-    return HttpResponse("Hello, world. You're at the web subindex.")
+# ====================================================
+# ====================== Paginas =====================
+# ====================================================
+
+WebPageContext: dict = CUSTOM_CONFIG["web"]
+
+def MainPage(request: WSGIRequest) -> HttpResponse:
+    return render(request, "index.html", WebPageContext)
