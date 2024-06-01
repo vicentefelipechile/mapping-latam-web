@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'post.css' %}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
     <title>{{ IndexPageName }}</title>
 </head>
@@ -30,11 +34,24 @@
             </div>
         </div>
 
-        <div class="mp-midbar">
-            <div style="height: 1000px;"></div>
-                hola2
+        <div class="verticalline-left"></div>
+        <div class="mp-midbar" identifier="hola">
+            <div class="mp-post">
+                <div class="mp-post-author">
+                    <div class="mp-post-author-left">
+                        <div class="mp-post-author-profile">
+                            <img src="https://github.mapping-latam.cl/html/img/html_logo.png" class="mp-post-author-profile-img">
+                        </div>
+                    </div>
+                    <div class="mp-post-author-right">
+                        <div class="mp-post-author-name">vicentefelipechile</div>
+                        <div class="mp-post-author-timestamp">2024-05-31</div>
+                    </div>
+                </div>
+                <div class="mp-post-edit"></div>
             </div>
         </div>
+        <div class="verticalline-right"></div>
     </div>
 
 </body>

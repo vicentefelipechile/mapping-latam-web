@@ -5,5 +5,5 @@ from . import api
 API_VERSION: int = 1
 
 urlpatterns = [
-    path("api/v" + str(API_VERSION) + "/index/", api.index, name="index"),
+    path("", api.SimpleAPI, name="SimpleAPI"),
 ]

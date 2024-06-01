@@ -18,6 +18,7 @@
 * {
     color: white;
     font-family: "Roboto", Arial;
+    cursor: default;
 }
 
 body {
@@ -29,6 +30,20 @@ h1, h2, h3, h4, h5, h6 {
     font-family: inherit;
 }
 
+.verticalline-left {
+    border-left: 1px solid rgb(37, 47, 58);
+    height: 100vh;
+    right: calc(75vw + 16px);
+    position: fixed;
+}
+
+.verticalline-right {
+    border-left: 1px solid rgb(37, 47, 58);
+    height: 100vh;
+    left: calc(75vw + 16px);
+    position: fixed;
+}
+
 .mp-maincontent {
     display: flex;
     flex-direction: row;
@@ -38,7 +53,7 @@ h1, h2, h3, h4, h5, h6 {
 .mp-leftbar {
     position: fixed;
     height: 100%;
-    right: calc(75vw + 19px);
+    right: calc(75vw + 26px);
     width: 170px;
 
     display: flex;
@@ -57,18 +72,17 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+
+    margin-bottom: 6px;
 }
 
 .mp-leftbar-item:hover {
-    background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 80%);
+    background: linear-gradient(90deg, rgb(0, 0, 0, 0), rgb(13, 22, 31));
     cursor: pointer;
 }
 
 .mp-midbar {
     width: 50vw;
-
-    border-left: 1px solid rgb(37, 47, 58);
-    border-right: 1px solid rgb(37, 47, 58);
 
     padding-left: 16px;
     padding-right: 16px;

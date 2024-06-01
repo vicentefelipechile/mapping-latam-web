@@ -1,0 +1,32 @@
+.mp-post {
+    margin-top: 20px;
+}
+
+.mp-post-author {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.mp-post-author-profile {
+    cursor: pointer;
+}
+
+.mp-post-author-profile-img {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.mp-post-author-name {
+    color: rgb(255, 255, 255, 0.88);
+    font-size: x-large;
+
+    cursor: pointer;
+}
+
+.mp-post-author-timestamp {
+    color: rgb(255, 255, 255, 0.66);
+}
