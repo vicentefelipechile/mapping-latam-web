@@ -1,0 +1,70 @@
+/* FONTS */
+
+@font-face {
+    font-family: "RobotoBold";
+    src: url("/static/fonts/Roboto-Medium.ttf")
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url("/static/fonts/Roboto-Regular.ttf")
+}
+
+@font-face {
+    font-family: "RobotoLight";
+    src: url("/static/fonts/Roboto-Light.ttf")
+}
+
+
+
+/* COLORS */
+
+:root {
+    --center-width: 700px;
+    --leftbar-width: 280px;
+}
+
+/* GENERAL */
+
+* {
+    color: white;
+    font-family: "Roboto", Arial;
+    cursor: default;
+}
+
+body {
+    background-color: rgb(21, 32, 43);
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-family: inherit;
+    cursor: inherit;
+}
+
+img, svg, path {
+    cursor: inherit;
+}
+
+i.bi {
+    cursor: inherit;
+}
+
+/* If the screen size is small, then reduce the center width */
+
+@media screen and (max-width: 1250px) {
+    :root {
+        --center-width: 490px;
+        --leftbar-width: 180px;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-size: calc(100% * 0.9);
+    }
+
+    i.bi {
+        height: calc(100%* 0.9);
+    }
+
+}

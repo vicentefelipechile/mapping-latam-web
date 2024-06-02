@@ -1,46 +1,18 @@
 /* Django version 5.0 */
 /* add Robot font */
-@font-face {
-    font-family: "RobotoBold";
-    src: url("/static/fonts/Roboto-Medium.ttf")
-}
 
-@font-face {
-    font-family: "Roboto";
-    src: url("/static/fonts/Roboto-Regular.ttf")
-}
-
-@font-face {
-    font-family: "RobotoLight";
-    src: url("/static/fonts/Roboto-Light.ttf")
-}
-
-* {
-    color: white;
-    font-family: "Roboto", Arial;
-    cursor: default;
-}
-
-body {
-    background-color: rgb(21, 32, 43);
-    margin: 0;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: inherit;
-}
 
 .verticalline-left {
     border-left: 1px solid rgb(37, 47, 58);
     height: 100vh;
-    right: calc(75vw + 16px);
+    left: calc( 50vw - ( var(--center-width) / 2 ) );
     position: fixed;
 }
 
 .verticalline-right {
     border-left: 1px solid rgb(37, 47, 58);
     height: 100vh;
-    left: calc(75vw + 16px);
+    right: calc( 50vw - ( var(--center-width) / 2 ) );
     position: fixed;
 }
 
@@ -53,8 +25,8 @@ h1, h2, h3, h4, h5, h6 {
 .mp-leftbar {
     position: fixed;
     height: 100%;
-    right: calc(75vw + 26px);
-    width: 170px;
+    left: calc( 50vw - ( var(--center-width) / 2 ) - var(--leftbar-width) );
+    width: var(--leftbar-width);
 
     display: flex;
     justify-content: center;
@@ -64,16 +36,20 @@ h1, h2, h3, h4, h5, h6 {
 
 .mp-leftbar-item {
     font-family: "RobotoLight", Arial;
-    padding: 10px;
     border-bottom: 1px solid rgb(21, 32, 43);
+
+    padding: 20px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+
+    margin-top: 4px;
+    margin-bottom: 4px;
 
     width: 100%;
 
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     align-items: center;
-
-    margin-bottom: 6px;
 }
 
 .mp-leftbar-item:hover {
@@ -81,8 +57,12 @@ h1, h2, h3, h4, h5, h6 {
     cursor: pointer;
 }
 
+i.bi {
+    margin-right: 20px;
+}
+
 .mp-midbar {
-    width: 50vw;
+    width: var(--center-width);
 
     padding-left: 16px;
     padding-right: 16px;
