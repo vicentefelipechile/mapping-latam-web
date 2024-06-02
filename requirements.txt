@@ -1,0 +1,12 @@
+asgiref==3.8.1
+attrs==23.2.0
+certifi==2024.2.2
+charset-normalizer==3.3.2
+cloudflare==2.20.0
+Django==5.0.6
+idna==3.7
+jsonlines==4.0.0
+PyYAML==6.0.1
+requests==2.32.3
+sqlparse==0.5.0
+urllib3==2.2.1
