@@ -26,7 +26,18 @@ METHOD_NOT_ALLOWED: dict[str] = {
 def SimpleAPI(request: WSGIRequest) -> JsonResponse:
     if not DEBUG and request.method == "GET": return JsonResponse(METHOD_NOT_ALLOWED, status=STATUS_NOT_ALLOWED)
 
-    data: dict = {
+    data: dict[str] = {
+        "message": "Hello, World!",
+    }
+
+    return JsonResponse(data, status=STATUS_OK)
+
+def Files(request: WSGIRequest) -> JsonResponse:
+    if not DEBUG and request.method == "GET": return JsonResponse(METHOD_NOT_ALLOWED, status=STATUS_NOT_ALLOWED)
+
+    print(request)
+
+    data: dict[str] = {
         "message": "Hello, World!",
     }
 

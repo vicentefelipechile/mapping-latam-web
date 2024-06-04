@@ -19,25 +19,54 @@
     <title>{{ IndexPageName }}</title>
 </head>
 <body>
-    <div class="mp-header">
-
+    <div class="mp-overlay" id="overlay">
+        <embed src="/createnewpost" type="text/html">
     </div>
+
+    <script>
+        overlay = document.getElementById("overlay")
+        overlay.style.display = "none";
+    </script>
 
     <!-- Leftbar navigation -->
     <div class="verticalline-left"></div>
 
     <div class="mp-leftbar">
-        <div class="mp-leftbar-item">
-            <i class="bi bi-house-door-fill fs-3"></i>
-            <h3>Principal</h3>
+        <div class="mp-leftbar-center">
+            <div class="mp-leftbar-item">
+                <i class="bi bi-house-door-fill fs-3 mp-leftbar-item-icon"></i>
+                <h3 class="mp-leftbar-item-text">Principal</h3>
+            </div>
+            <div class="mp-leftbar-item">
+                <i class="bi bi-bell-fill fs-3 mp-leftbar-item-icon"></i>
+                <h3 class="mp-leftbar-item-text">Notificaciones</h3>
+            </div>
+            <div class="mp-leftbar-item">
+                <i class="bi bi-chat-square-fill fs-3 mp-leftbar-item-icon"></i>
+                <h3 class="mp-leftbar-item-text">Conversaciones</h3>
+            </div>
+            <div class="mp-leftbar-item">
+                <i class="bi bi-bookmark-fill fs-3 mp-leftbar-item-icon"></i>
+                <h3 class="mp-leftbar-item-text">Guardados</h3>
+            </div>
+            <div class="mp-leftbar-item">
+                <i class="bi bi-person-fill fs-3 mp-leftbar-item-icon"></i>
+                <h3 class="mp-leftbar-item-text">Perfil</h3>
+            </div>
+            <hr>
+            <div class="mp-leftbar-item">
+                <i class="bi bi-plus-circle-fill fs-3 mp-leftbar-item-icon"></i>
+                <h3>Publicar</h3>
+            </div>
         </div>
         <div class="mp-leftbar-item">
-            <i class="bi bi-bell-fill fs-3"></i>
-            <h3>Notificaciones</h3>
-        </div>
-        <div class="mp-leftbar-item">
-            <i class="bi bi-chat-square-fill fs-3"></i>
-            <h3>Conversaciones</h3>
+            <div class="mp-leftbar-profile-left">
+                <img src="https://github.mapping-latam.cl/html/img/discord/mp_gmod.png" class="mp-leftbar-profile-img">
+            </div>
+            <div class="mp-leftbar-profile-right">
+                <h3 class="fs-4">vicentefelipechile</h3>
+                <h3 class="fs-6">@vicentefelipechile</h3>
+            </div>
         </div>
     </div>
 
@@ -47,17 +76,21 @@
     <div class="mp-maincontent">
         <div class="mp-midbar" identifier="hola">
             <div class="mp-post">
-                <div class="mp-post-author">
-                    <div class="mp-post-author-left">
-                        <div class="mp-post-author-profile">
-                            <img src="https://github.mapping-latam.cl/html/img/html_logo.png" class="mp-post-author-profile-img">
+                <div class="mp-post-header">
+                    <div class="mp-post-author">
+                        <div class="mp-post-author-left">
+                            <div class="mp-post-author-profile">
+                                <img src="https://github.mapping-latam.cl/html/img/discord/mp_gmod.png" class="mp-post-author-profile-img">
+                            </div>
+                        </div>
+                        <div class="mp-post-author-right">
+                            <div class="mp-post-author-name">@vicentefelipechile</div>
+                            <div class="mp-post-author-timestamp">2024-05-31</div>
                         </div>
                     </div>
-                    <div class="mp-post-author-right">
-                        <div class="mp-post-author-name">@vicentefelipechile</div>
-                        <div class="mp-post-author-timestamp">2024-05-31</div>
+                    <div class="mp-post-edit">
+                        <i class="bi bi-three-dots-vertical fs-4"></i>
                     </div>
-                    <div class="mp-post-edit"></div>
                 </div>
             </div>
         </div>

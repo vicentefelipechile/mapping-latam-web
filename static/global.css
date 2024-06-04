@@ -22,6 +22,8 @@
 :root {
     --center-width: 700px;
     --leftbar-width: 280px;
+    --leftbar-offset: 120px;
+    --leftbar-right: 40px;
 }
 
 /* GENERAL */
@@ -53,7 +55,7 @@ i.bi {
 
 /* If the screen size is small, then reduce the center width */
 
-@media screen and (max-width: 1250px) {
+@media screen and (max-width: 1360px) {
     :root {
         --center-width: 490px;
         --leftbar-width: 180px;

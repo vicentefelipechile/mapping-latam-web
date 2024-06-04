@@ -19,3 +19,8 @@ WebPageContext: dict = CUSTOM_CONFIG["web"]
 
 def MainPage(request: WSGIRequest) -> HttpResponse:
     return render(request, "index.html", WebPageContext)
+
+def CreateNewPost(request: WSGIRequest) -> HttpResponse:
+    print(request.COOKIES)
+
+    return render(request, "newpost.html", WebPageContext)
