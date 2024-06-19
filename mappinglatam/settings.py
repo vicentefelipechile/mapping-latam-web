@@ -16,7 +16,6 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 CUSTOM_CONFIG: dict[str] = {}
-CUSTOM_STORAGE_OPTIONS: dict = {}
 
 # load ../env.json
 import json

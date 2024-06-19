@@ -102,6 +102,17 @@
     padding-right: 16px;
 }
 
+/* Small screen */
+
+@media screen and (max-width: 1360px) {
+    .mp-leftbar-item {
+        padding-top: 7px;
+        padding-bottom: 7px;
+    }
+}
+
+/* Ultra small screen */
+
 @media screen and (max-width: 1000px) {
     :root {
         --leftbar-right: -40px;
@@ -109,5 +120,9 @@
 
     .mp-leftbar-item-text {
         font-size: 0;
+    }
+
+    .mp-leftbar-item-icon {
+        margin-right: 0;
     }
 }

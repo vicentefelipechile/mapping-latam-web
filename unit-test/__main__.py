@@ -2,6 +2,8 @@
 # ================= Unidad de Prueba =================
 # ====================================================
 
+REMOVE_AFTER_UNIT: bool = True
+
 from os.path import exists as file_exists
 import requests
 import json
@@ -70,6 +72,7 @@ except Exception:
 
 try:
     BucketTest.upload_file(f"{CurrentPath}/dummy.txt", "works.txt")
+    BucketTest.upload_file(f"{CurrentPath}/videotest.webm", "videotest.webm")
 except Exception:
     raise Exception("Error uploading file")
 
@@ -86,7 +89,7 @@ except Exception:
     raise Exception("Error saving file")
 
 print("[Unit-test] Cloudflare: Done!")
-os.remove(f"{CurrentPath}/works.txt")
+# os.remove(f"{CurrentPath}/works.txt")
 
 
 
@@ -94,6 +97,48 @@ os.remove(f"{CurrentPath}/works.txt")
 # =================== CloudConvert ===================
 # ====================================================
 
+cloudconvert_payload: dict[str | dict[str]] = {
+    "tasks": {
+        "unittest-import-s3": {
+            "operation": "import/s3",
+            "bucket": f"""{EnvSettings["cloudflare"]["BucketName"]}""",
+            "region": "us-east-1",
+            "access_key_id": f"""{EnvSettings["cloudflare"]["AccessKeyID"]}""",
+            "secret_access_key": f"""{EnvSettings["cloudflare"]["SecretAccessKey"]}""",
+            "endpoint": f"""{EnvSettings["cloudflare"]["EndPoint"]}""",
+            "key": "videotest.webm"
+        },
+        "unittest-convert": {
+            "operation": "convert",
+            "input": [
+                "unittest-import-s3"
+            ],
+            "output_format": "mp4",
+            "filename": "videotest.mp4"
+        },
+        "unittest-thumbnail": {
+            "operation": "thumbnail",
+            "input": [
+                "unittest-import-s3"
+            ],
+            "output_format": "jpg",
+            "filename": "videotest.jpg"
+        },
+        "unittest-export-s3": {
+            "operation": "export/s3",
+            "input": [
+                "unittest-convert",
+                "unittest-thumbnail"
+            ],
+            "bucket": f"""{EnvSettings["cloudflare"]["BucketName"]}""",
+            "region": "us-east-1",
+            "access_key_id": f"""{EnvSettings["cloudflare"]["AccessKeyID"]}""",
+            "secret_access_key": f"""{EnvSettings["cloudflare"]["SecretAccessKey"]}""",
+            "endpoint": f"""{EnvSettings["cloudflare"]["EndPoint"]}"""
+        }
+    },
+    "tag": "jobbuilder"
+}
 
 
 try:
@@ -101,7 +146,29 @@ try:
 except ImportError:
     raise Exception("cloudconvert module doesn't exist\nInstall with pip install cloudconvert")
 
+from cloudconvert.job import Job
+
 if not EnvSettings["cloudconvert"]["APIKey"]:
     raise Exception("""EnvSettings["cloudconvert"]["APIKey"] doesn't exists""")
 
-cloudconvert.configure(api_key=EnvSettings["cloudconvert"]["APIKey"], sandbox=True)
+try:
+    cloudconvert.configure(api_key=EnvSettings["cloudconvert"]["APIKey"], sandbox=True)
+except Exception:
+    raise Exception("Error configuring CloudConvert")
+
+CloudconvertJobTask: Job = Job.create(cloudconvert_payload)
+
+print("[Unit-test] CloudConvert: Done!")
+
+if REMOVE_AFTER_UNIT:
+
+    ObjectToRemove: list[ dict[str] ] = [
+        { "Key": "videotest.mp4" },
+        { "Key": "videotest.webm" },
+        { "Key": "videotest.jpg" },
+        { "Key": "works.txt"}
+    ] 
+
+    BucketTest.delete_objects(Delete={"Objects": ObjectToRemove})
+
+    os.remove(f"{CurrentPath}/works.txt")
