@@ -3,6 +3,7 @@
 import os
 import sys
 
+tries: int = 0
 
 def main():
     """Run administrative tasks."""
@@ -15,6 +16,10 @@ def main():
             "available on your PYTHONPATH environment variable? Did you "
             "forget to activate a virtual environment?"
         ) from exc
+
+    global tries
+    tries += 1
+
     execute_from_command_line(sys.argv)
 
 

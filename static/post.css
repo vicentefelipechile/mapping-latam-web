@@ -1,0 +1,68 @@
+.mp-post {
+    margin-top: 20px;
+}
+
+.mp-post-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mp-post-author {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.mp-post-author-profile {
+    cursor: pointer;
+}
+
+.mp-post-author-profile-img {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+
+.mp-post-author-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.mp-post-author-name {
+    color: rgb(255, 255, 255, 0.88);
+    font-size: x-large;
+
+    padding-right: 5px;
+    padding-left: 5px;
+
+    cursor: pointer;
+}
+
+.mp-post-author-timestamp {
+    color: rgb(255, 255, 255, 0.66);
+    margin-left: 8px;
+}
+
+.mp-post-edit {
+    cursor: pointer;
+    padding: 10px;
+
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+
+    transition: background-color 0.08s ease-in-out;
+}
+
+.mp-post-edit:hover {
+    background-color: rgb(255, 255, 255, 0.1);
+}

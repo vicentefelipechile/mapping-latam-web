@@ -15,6 +15,13 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+CUSTOM_CONFIG: dict[str] = {}
+
+# load ../env.json
+import json
+with open(BASE_DIR / "env.json") as f:
+    CUSTOM_CONFIG = json.load(f)
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -25,7 +32,11 @@ SECRET_KEY = 'django-insecure-y1j7*1%^9c9f9kfjr%f_rk%dt@t4g-4xmo^dm=1f+n&wtjzc+b
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '.localhost',
+    '127.0.0.1',
+    '[::1]'
+]
 
 
 # Application definition
@@ -37,6 +48,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'web',
+    'api',
 ]
 
 MIDDLEWARE = [
@@ -116,6 +129,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

@@ -1,0 +1,128 @@
+/* Django version 5.0 */
+
+@property --mpDarkColor {
+    syntax: '<color>';
+    initial-value: rgb(0, 0, 0, 0);
+    inherits: false;
+}
+
+@property --mpDarkestColor {
+    syntax: '<color>';
+    initial-value: rgb(0, 0, 0, 0);
+    inherits: false;
+}
+
+
+.verticalline-left {
+    border-left: 1px solid rgb(37, 47, 58);
+    height: 100vh;
+    left: calc( 50vw - ( var(--center-width) / 2 ) );
+    position: fixed;
+}
+
+.verticalline-right {
+    border-left: 1px solid rgb(37, 47, 58);
+    height: 100vh;
+    right: calc( 50vw - ( var(--center-width) / 2 ) );
+    position: fixed;
+}
+
+.mp-maincontent {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.mp-leftbar {
+    position: fixed;
+    height: 100%;
+    left: calc( 50vw - ( var(--center-width) / 2 ) - var(--leftbar-width) - var(--leftbar-right) );
+    width: var(--leftbar-width);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.mp-leftbar-center {
+    height: calc(100% - var(--leftbar-offset));
+}
+
+.mp-leftbar-profile-img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.mp-leftbar-item {
+    font-family: "RobotoLight", Arial;
+    border-bottom: 1px solid rgb(21, 32, 43);
+
+    background: linear-gradient(90deg,
+        var(--mpDarkestColor),
+        var(--mpDarkColor),
+        var(--mpDarkColor),
+        var(--mpDarkColor),
+        var(--mpDarkColor),
+        var(--mpDarkestColor)
+    );
+
+    padding: 20px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+
+    margin-top: 4px;
+    margin-bottom: 4px;
+
+    width: 100%;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    
+    transition: --mpDarkColor 0.08s ease-in-out, --mpDarkestColor 0.08s ease-in-out;
+}
+
+
+.mp-leftbar-item:hover {
+    --mpDarkColor: rgb(13, 22, 31);
+    cursor: pointer;
+}
+
+.mp-leftbar-item-icon {
+    margin-right: 20px;
+}
+
+.mp-midbar {
+    width: var(--center-width);
+
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+/* Small screen */
+
+@media screen and (max-width: 1360px) {
+    .mp-leftbar-item {
+        padding-top: 7px;
+        padding-bottom: 7px;
+    }
+}
+
+/* Ultra small screen */
+
+@media screen and (max-width: 1000px) {
+    :root {
+        --leftbar-right: -40px;
+    }
+
+    .mp-leftbar-item-text {
+        font-size: 0;
+    }
+
+    .mp-leftbar-item-icon {
+        margin-right: 0;
+    }
+}
