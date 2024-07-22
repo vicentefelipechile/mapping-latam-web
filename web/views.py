@@ -21,6 +21,7 @@ def MainPage(request: WSGIRequest) -> HttpResponse:
     return render(request, "index.html", WebPageContext)
 
 def CreateNewPost(request: WSGIRequest) -> HttpResponse:
-    print(request.COOKIES)
-
     return render(request, "newpost.html", WebPageContext)
+
+def LoginPage(request: WSGIRequest) -> HttpResponse:
+    return render(request, "login.html", WebPageContext)
